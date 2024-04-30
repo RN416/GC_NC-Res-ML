@@ -41,7 +41,7 @@ class Selection:
 
     def fit(self, X, y=None):
         must = []
-        cls = Lasso(alpha=self.args.alpha,normalize=True,max_iter=10000)
+        cls = Lasso(alpha=self.args.alpha, max_iter=10000)
         cls.fit(X, y)
         imp = np.sort(np.abs(cls.coef_))[-self.args.k]
         print("imp:",imp)
